@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initinal-scale=1">
+    <meta name="author" content="Yuhan Zhao">
+    <meta name="discription" content="My Web Page">
+    <meta name="keywords" content="html, css, web, web development, seo">
+    <title>Fakebook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/style/index.css" media="all">
+    <script src="./assets/script/index.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container flex">
+        <div class="title">
+          <h1>Fakebook</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#">Friends</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Groups</a></li>
+            <li><a href="#">My ads</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </nav>
+        <div class="action">
+          <div class="profile" onclick="menuToggle();">
+            <img src="./assets/image/icon.jpeg">
+          </div>
+          <div class="menu">
+            <h3>Hello!<span class="profile-2"></span></h3>
+            <ul>
+              <li>
+                <p>
+                  Pages and groups:<span class="detail"></span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <main>
+        <h1>My Posts</h1>
+        <div class="input">
+          <textarea class="type" placeholder="What's new, NuoMi's biggest fan?"></textarea>
+          <div class="image-upload">
+            <label for="file-input"><i class="fa-solid fa-image"></i></label>
+            <input id="file-input" type="file" accept="image/jpeg, image/png, image/jpg">
+          </div>
+          <div class="message"></div>
+          <button class="post">Post</button>
+        </div>
+        <div class="board"></div>
+      </main>
+    </div>
+  </body>
+</html>
