@@ -112,7 +112,7 @@ function addPost(postBox, obj) {
   para.classList.add("para");
   para.innerText = type.value;
   postBox.append(infoBox, para);
-  board.append(postBox);
+  board.prepend(postBox);
 }
 function addImage(postBox, img) {
   let file = img.files;

@@ -253,6 +253,7 @@ main button:active {
   grid-row-gap: 0px;
   margin: auto;
   place-items: center;
+  align-items: top;
 }
 .board .div {
   margin-top: 30px;
