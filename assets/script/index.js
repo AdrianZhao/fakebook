@@ -46,6 +46,12 @@ class Subscriber extends User {
   getInfo() {
     return `${this.#pages}\n${this.#group}`;
   }
+  getMonetize() {
+    if (this.#canMonetize)
+      return `Yes! Your are authorized to monetize`;
+    else
+      return `Sorry! Your are not authorized to monetize`
+  }
 }
 
 const xiaogou = new Subscriber(
@@ -62,15 +68,19 @@ const message = document.querySelector('.message');
 const button = document.querySelector('.post');
 const profile = document.querySelector('.profile-2');
 const detail = document.querySelector('.detail');
+const monetize = document.querySelector('.monetize');
 const board = document.querySelector('.board');
 const image = document.querySelector('#file-input');
 const type = document.querySelector('textarea')
 
 function getUserInfo(){
-  profile.innerText = `\n#${xiaogou.id}\n${xiaogou.userName}\n${xiaogou.email}`;
+  profile.innerText = `#${xiaogou.id}\n${xiaogou.userName}\n${xiaogou.email}`;
 }
 function getUserDetail(){
-  detail.innerText = `\n${xiaogou.getInfo()}`;
+  detail.innerText = `${xiaogou.getInfo()}`;
+}
+function getUserMonetize(){
+  monetize.innerText = `${xiaogou.getMonetize()}`;
 }
 document.getElementById("file-input").onchange = function() {
   message.innerText = `${(document.getElementById("file-input").files[0].name)}`;
@@ -114,6 +124,7 @@ function addPost(postBox, obj) {
   postBox.append(infoBox, para);
   board.prepend(postBox);
 }
+
 function addImage(postBox, img) {
   let file = img.files;
   if (file.length != 0) {
@@ -127,3 +138,4 @@ function addImage(postBox, img) {
 }
 getUserInfo();
 getUserDetail();
+getUserMonetize();
