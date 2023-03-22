@@ -149,7 +149,7 @@ main h1 {
 textarea {
   color: #d8d8d9;
   background-color: #1f2229;
-  width: 700px;
+  width: 65%;
   height: 250px;
   resize: none;
   padding: 12px 15px;
@@ -172,6 +172,10 @@ textarea {
   position: absolute;
   top: 205px;
   left: 19%;
+  transition: 0.5s;
+}
+.image-upload:hover {
+  color: #3e9dff;
 }
 .image-upload input {
   visibility:hidden;
@@ -180,7 +184,7 @@ textarea {
 }
 main button {
   top: 200px;
-  left: 74%;
+  right: 18.5%;
   position: absolute;
   padding: 10px 20px;
   border-radius: 7px;
@@ -258,10 +262,26 @@ main button:active {
 .board .div {
   margin-top: 30px;
   border-radius: 10px;
-  width: 700px;
+  width: 65%;
   padding: 10px;
   color: #14161d;
   background-color: #d8d8d9;
+  transition: all 0.5s ease-in-out; 
+  animation: move 0.5s ease-in-out;
+}
+/* Move it (define the animation) */
+@keyframes move {
+ 0%   { 
+ transform: translateY(-5%);
+ opacity: 0; 		
+ }
+ 100% { 
+ transform: translateY(0%); 
+ opacity: 1;
+ }
+}
+.board .div:hover{
+  transform: scale(1.02);
 }
 .board .flex {
   display: flex;
@@ -290,10 +310,9 @@ main button:active {
   font-weight: 600;
 }
 .board .time{
-  padding-left: 300px;
-  padding-top: 10px;
+  margin: auto;
+  margin-right: 10px;
   color: rgba(0, 0, 0, 0.4);
-  padding-right: 10px;
   font-size: 18px;
   font-weight: 600;
 }
