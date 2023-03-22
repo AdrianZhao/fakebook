@@ -252,36 +252,56 @@ main button:active {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin: auto;
+  place-items: center;
 }
-.board div {
+.board .div {
+  margin-top: 30px;
+  border-radius: 10px;
   width: 700px;
-  font-size: 14px;
-  font-weight: 300;
   padding: 10px;
   color: #14161d;
   background-color: #d8d8d9;
 }
-.board .flex{
+.board .flex {
   display: flex;
 }
 .board .icon{
+  padding-left: 10px;
+  position: relative;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
 }
+.board .icon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .board .name{
+  padding-top: 10px;
   padding-left: 10px;
   font-size: 18px;
   font-weight: 600;
 }
 .board .time{
-  color: darkgray;
+  padding-left: 300px;
+  padding-top: 10px;
+  color: rgba(0, 0, 0, 0.4);
   padding-right: 10px;
-  float: right;
   font-size: 18px;
   font-weight: 600;
+}
+.board .para{
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-size: 18px;
+  font-weight: 300;
 }
 .board .image{
   max-width: 680px;

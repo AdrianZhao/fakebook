@@ -63,8 +63,8 @@ const button = document.querySelector('.post');
 const profile = document.querySelector('.profile-2');
 const detail = document.querySelector('.detail');
 const board = document.querySelector('.board');
-const image = document.querySelector('.file-input');
-const type = document.querySelector('.type')
+const image = document.querySelector('#file-input');
+const type = document.querySelector('textarea')
 
 function getUserInfo(){
   profile.innerText = `\n#${xiaogou.id}\n${xiaogou.userName}\n${xiaogou.email}`;
@@ -75,19 +75,24 @@ function getUserDetail(){
 document.getElementById("file-input").onchange = function() {
   message.innerText = `${(document.getElementById("file-input").files[0].name)}`;
 }
-function checkInput(input1, input2) {
-  if (input1.value == '' && input2.value == '')
+
+function checkInput(type, image) {
+  const curFiles = image.files;
+  if (type.value == '' && curFiles.length === 0){
     return false;
+  }
+  return true;
 }
 button.addEventListener('click', () => {
   if (checkInput(type, image)) {
     let postBox = document.createElement('div');
-    postBox.classList.add("grid");
+    postBox.classList.add("div");
     addPost(postBox, xiaogou);
-    if (image.value != '')
-      addImage(postBox, image);
+    addImage(postBox, image);
   }
-  type.innerText = '';
+  type.value = '';
+  message.innerText = '';
+  image.value = '';
 })
 function addPost(postBox, obj) {
   let infoBox = document.createElement('div');
@@ -98,21 +103,27 @@ function addPost(postBox, obj) {
   let name = document.createElement('p');
   name.classList.add("name");
   name.innerText = `${obj.userName}`;
+  const now = new Date();
   let time = document.createElement('p');
   time.classList.add("time");
   time.innerText = `${now.toDateString()}`;
   infoBox.append(icon, name, time);
   let para = document.createElement('p');
+  para.classList.add("para");
   para.innerText = type.value;
   postBox.append(infoBox, para);
+  board.append(postBox);
 }
 function addImage(postBox, img) {
   let file = img.files;
-  let imgBox = document.createElement('div');
-  imgBox.classList.add("image");
-  imgBox.innerHTML = `<img src="${URL.createObjectURL(file)}" alt="image">`;
-  postBox.append(imgBox);
+  if (file.length != 0) {
+    let imgBox = document.createElement('div');
+    imgBox.classList.add("image");
+    const tempImage = document.createElement('img');
+    tempImage.src = URL.createObjectURL(img.files[0]);
+    imgBox.append(tempImage);
+    postBox.append(imgBox);
+  }
 }
-
 getUserInfo();
 getUserDetail();
